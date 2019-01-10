@@ -16,13 +16,13 @@ person.save(); // Mongoose will save changes to `anything`.
 
 ```
 
-Buffer，
-Boolean，
-ObjectId，
-Buffer，
-Map：{"key":"value", "key2":"value"}
+Buffer，  
+Boolean，  
+ObjectId，  
+Buffer，  
+Map：{"key":"value", "key2":"value"}  
 在设置每个数据类型的时候，可以设置option，每个类型有自己的opiton，称为属性的校验器（validator），对传入的值进行提前校验。
-图片相对路径：getter用法
+图片相对路径：getter用法  
 ```
 const root = 'http://www.baidu.com';
 const  schema = new Schema({
