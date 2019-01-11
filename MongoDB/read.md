@@ -39,8 +39,7 @@ schema.path('name')//查看属性的详细信息
 **Connection**
  1.monoose即使不建立连接也可以调用models，因为mongose内部调缓存调用了model 函数，会等待连接直到连接上MongoDB。可以通过mongoose.set('bufferCommands', false)来修改默认。
  2.mongoose.connect（url，option）；
-
-
+ 3.mongoose.find() 会返回query对象，这个query下有好多方法，prototype是mongo自己的，跟js没有关系，query应该是一个数组。
 
 
 
