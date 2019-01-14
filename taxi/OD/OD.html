@@ -1,0 +1,957 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> -->
+    <!-- <script src="lib/topojson.v1.min.js" charset="utf-8"></script> -->
+    <!-- <script type="text/javascript" src="lib/osmtogeojson.js"></script> -->
+    
+     <!-- <link rel="stylesheet" type="text/css" href="lib/leaflet-0.8/leaflet.css"> -->
+     <!-- <script type="text/javascript" src='lib/leaflet-0.8/leaflet-src.js'></script> -->
+     <link rel="stylesheet" type="text/css" href="lib/leaflet/leaflet.css">
+     <script type="text/javascript" src='lib/leaflet/leaflet.js'></script>
+
+     <!-- <link rel="stylesheet" type="text/css" href="lib/leaflet-1.0-beta/leaflet.css"> -->
+     <!-- <script type="text/javascript" src="lib/leaflet-1.0-beta/leaflet-src.js"></script> -->
+     <script type="text/javascript" src="lib/heatmap.js"></script>
+     <script type="text/javascript" src="lib/leaflet-heatmap.js"></script>
+     <script type="text/javascript" src="lib/jquery.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+     <script type="text/javascript"  src="lib/bootstrap/js/bootstrap.min.js"></script>
+     <link href="lib/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+     <link href="lib/datetimepicker_less.css" rel="stylesheet" media="screen">
+     <script type="text/javascript" src="lib/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+     <script type="text/javascript" src="lib/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+     <link href="lib/leaflet.toolbar.css" rel="stylesheet" media="screen">
+     <script type="text/javascript" src="lib/leaflet.toolbar.js" charset="UTF-8"></script>
+
+     <script src="lib/leaflet.timeline.min.js"></script>
+     <script type="text/javascript" src="lib/TimelineSliderControl.js"></script>
+     <script type="text/javascript" src="lib/d3.min.js"></script>
+     <script type="text/javascript" src="lib/echarts.min.js"></script>
+     <script type="text/javascript" src="lib/leaflet-heat.js"></script>
+     <script type="text/javascript" src="lib/Leaflet.MakiMarkers.js"></script>
+
+      <link rel="stylesheet" href="lib/MarkerCluster-1.0/MarkerCluster.css" />
+      <link rel="stylesheet" href="lib/MarkerCluster-1.0/MarkerCluster.Default.css" />
+      <script src="lib/MarkerCluster-1.0/leaflet.markercluster-src.js"></script>
+      <script src="lib/bouncemarker.js"></script>
+      <script type="text/javascript" src="lib/AnimatedMarker.js"></script>
+     
+      <!-- <script type="text/javascript" src="lib/leaflet-locationfilter-master/locationfilter.js"></script> -->
+      <!-- <link rel="stylesheet" type="text/css" href="lib/leaflet-locationfilter-master/locationfilter.css"> -->
+    
+      <script src="lib/Leaflet.Control.Custom.js"></script>
+
+      <!-- <link rel="stylesheet" type="text/css" href="css/locationfilter.css"> -->
+
+      <link rel="stylesheet" type="text/css" href="lib/leaflet-beautify-marker-icon.css">
+      <script type="text/javascript" src='lib/leaflet-beautify-marker-icon.js'></script>
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+
+      <link rel="stylesheet" href="lib/Leaflet-MiniMap/Control.MiniMap.css" />
+      <script src="lib/LeafLet-MiniMap/Control.MiniMap.js" type="text/javascript"></script>
+
+      <script type="text/javascript" src="lib/L.Polyline.SnakeAnim.js"></script>
+
+    <link rel="stylesheet" href="lib/Leaflet-draw/src/leaflet.draw.css"/>
+    <script src="lib/Leaflet-draw/src/Leaflet.draw.js"></script>
+    <script src="lib/Leaflet-draw/src/Leaflet.Draw.Event.js"></script>
+    <script src="lib/Leaflet-draw/src/edit/handler/Edit.Poly.js"></script>
+    <script src="lib/Leaflet-draw/src/edit/handler/Edit.SimpleShape.js"></script>
+    <script src="lib/Leaflet-draw/src/edit/handler/Edit.Rectangle.js"></script>
+    <script src="lib/Leaflet-draw/src/edit/handler/Edit.Marker.js"></script>
+    <script src="lib/Leaflet-draw/src/edit/handler/Edit.CircleMarker.js"></script>
+    <script src="lib/Leaflet-draw/src/edit/handler/Edit.Circle.js"></script>
+
+    <script src="lib/Leaflet-draw/src/draw/handler/Draw.Feature.js"></script>
+    <script src="lib/Leaflet-draw/src/draw/handler/Draw.Polyline.js"></script>
+    <script src="lib/Leaflet-draw/src/draw/handler/Draw.Polygon.js"></script>
+    <script src="lib/Leaflet-draw/src/draw/handler/Draw.SimpleShape.js"></script>
+    <script src="lib/Leaflet-draw/src/draw/handler/Draw.Rectangle.js"></script>
+    <script src="lib/Leaflet-draw/src/draw/handler/Draw.Circle.js"></script>
+    <script src="lib/Leaflet-draw/src/draw/handler/Draw.Marker.js"></script>
+    <script src="lib/Leaflet-draw/src/draw/handler/Draw.CircleMarker.js"></script>
+
+    <script src="lib/Leaflet-draw/src/ext/TouchEvents.js"></script>
+    <script src="lib/Leaflet-draw/src/ext/LatLngUtil.js"></script>
+    <script src="lib/Leaflet-draw/src/ext/GeometryUtil.js"></script>
+    <script src="lib/Leaflet-draw/src/ext/LineUtil.Intersect.js"></script>
+    <script src="lib/Leaflet-draw/src/ext/Polyline.Intersect.js"></script>
+    <script src="lib/Leaflet-draw/src/ext/Polygon.Intersect.js"></script>
+
+    <script src="lib/Leaflet-draw/src/Control.Draw.js"></script>
+    <script src="lib/Leaflet-draw/src/Tooltip.js"></script>
+    <script src="lib/Leaflet-draw/src/Toolbar.js"></script>
+
+    <script src="lib/Leaflet-draw/src/draw/DrawToolbar.js"></script>
+    <script src="lib/Leaflet-draw/src/edit/EditToolbar.js"></script>
+    <script src="lib/Leaflet-draw/src/edit/handler/EditToolbar.Edit.js"></script>
+    <script src="lib/Leaflet-draw/src/edit/handler/EditToolbar.Delete.js"></script>
+    <script type="text/javascript" src="lib/arcline.js"></script>
+    <script type="text/javascript" src="lib/timecost.js"></script>
+
+</head>
+<style type="text/css">
+  html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /*overflow: hidden;*/
+  }
+
+    #map{ 
+        /*padding-top: 20px;*/
+        height:100%; 
+        width: 100%;
+        }
+        
+   .mynav{
+      padding: 5px 5px 5px 10px;
+      width: 100%;
+      height: 50px;
+      z-index: 999;
+      position: fixed;
+    }
+    .cell{
+      display: inline-block;
+      height: 100%;
+      width: 100px;
+      font-size: 18px;
+      border-radius: 3px;
+     
+
+    }
+    p{
+      padding-top: 10px;
+      padding-left: 15px;
+      width: 100%;
+      height: 100%;
+      line-height:100%;
+
+    }
+    .cell:hover{
+      cursor: pointer;
+      background-color: steelblue;
+      color: white;
+    }
+ 
+
+  .leaflet-top{
+      /*margin-top: 50px; */
+    }
+
+    #calender{
+      position: fixed;
+      top: 20px;
+      right: 70px;
+      height: 100px;
+      width: 330px;
+      background-color:#f5f5f5d9;
+      z-index: 999;
+    }
+    .calender{
+      margin: 0;
+    }
+    .generate_button{
+      margin-left: 90px;
+    }
+
+    #date_start,#date_end{
+      height: 35px;
+      width: 150px;
+      
+    }
+    
+    #heatmap_charts{
+      position: fixed;
+      width: 80%;
+      height: 200px;
+      bottom: 10px;
+      left: 10%;
+      z-index: 999;
+     
+    }
+   .btn-lg{
+      padding: 10px  10px;
+    }
+    .btn-group-vertical{
+      width: 40px;
+      padding: 0;
+    }
+
+    .leaflet-control-zoom{
+      top: 50px;
+      right:3px;
+    }
+
+    .myfilter{
+      top:0;
+    }
+
+    .axis path,
+    .axis line{
+      fill:none;
+      stroke: black;
+      shape-rendering: crispEdges;
+    }
+    .axis text{
+      font-family: sans-serif;
+      font-size: 11px;
+    }
+</style>
+
+<body>
+
+<div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal" role="document">
+    <div class="modal-content">
+       <div class="modal-body">获取数据中....</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="mynav" style="">
+  <a href="main.html"><div class="cell"><p>Raw Data</p></div></a>
+  <a href="heatmap.html"><div class="cell"><p>Heatmap</p></div></a>
+  <a href="OD.html"><div class="cell"><p>OD Flow</p></div></a>
+</div>
+
+<!-- calender -->
+<div id="calender">
+   <div class="form-group calender">
+                <label for="dtp_input1" class="col-md-3 control-label">Datetime Start</label>
+                <div class="input-group date form_datetime col-md-9" data-date="2014-11-03T09:30:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+                    <input class="form-control start_time" size="16" type="text" value="" readonly style="background-color: white">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+        <!-- <input type="hidden" id="dtp_input1" value="" /> -->
+        <br/>
+  </div>
+   <div class="form-group calender">
+                <label for="dtp_input1" class="col-md-3 control-label">Datetime End</label>
+                <div class="input-group date form_datetime col-md-9" data-date="2014-11-03T09:30:07Z" data-date-format="dd MM yyyy - HH" data-link-field="dtp_input1">
+                    <input class="form-control end_time" size="16" type="text" value="" readonly style="background-color: white">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+                <br/>
+  </div>
+  <button type="button" class="btn btn-sm btn-success generate_button">Generate</button> 
+</div>
+
+<!-- map container-->
+  <div  id="map"></div>
+
+</body>
+
+
+<script type="text/javascript">
+// L_PREFER_CANVAS=true;
+    var map = L.map('map',{
+            center:[30.25,120.10],
+            zoom:12,
+            zoomSnap:0.25,
+            attributionControl:false,
+            zoomControl:false,
+            closePopupOnClick:false,
+
+        });
+
+
+    var myzoom=L.control.zoom({
+      // zoomInText:"+",
+    })
+    myzoom.setPosition("topright").addTo(map);
+
+    $($(myzoom.getContainer()).children()).css({"width":"35px","height":"35px"});//通过css设置zoom的位置到右上角
+
+
+    var tileLayer=L.tileLayer('http://127.0.0.2:8080/MyWork/test/D3/hangzhou_taxi/lib/Tiles3/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 17,
+        // maxBoundsViscosity:1,
+        minZoom:8
+        // worldCopyJump:true,
+        // id: 'mapbox.streets',
+        // accessToken: 'your.mapbox.access.token'
+    }).addTo(map);
+    /*小地图的图层对象*/
+    var tileLayer2=L.tileLayer('http://127.0.0.2:8080/MyWork/test/D3/hangzhou_taxi/lib/Tiles3/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 10,
+    minZoom:7
+    });
+    var miniMap = new L.Control.MiniMap(tileLayer2,{autoToggleDisplay: true,minimized:true}).addTo(map);
+
+  var cfg={color:"red",fillcolor:"red",fillOpacity:1,radius:5};
+  var marker1= L.circleMarker([30.264154688972027,120.1530812904148],cfg).addTo(map);
+  var marker1= L.circleMarker([30.25276811866446,120.1593446650506],cfg).addTo(map);
+  var marker2= L.circleMarker([30.19831170998776,120.14602864044532],cfg).addTo(map);
+  var marker3= L.circleMarker([30.178975052290937,120.08051632782968],cfg).addTo(map);
+  var marker4= L.circleMarker([30.228838479089898,120.06300722732017],cfg).addTo(map);
+  var marker5= L.circleMarker([30.251062259036086,120.09562522483543],cfg).addTo(map);
+
+ 
+    // var marker1 = L.marker([30.264154688972027,120.1530812904148],{}).addTo(map);
+    // var marker1 = L.marker(,{attribution:"hello"}).addTo(map);
+
+    map.on("click",function(event){
+      console.log(event.latlng);
+    })
+    // -----------------------------------
+
+L.control.custom({
+          position: 'topright',
+          id:"mytoolbar",
+          content : 
+                  '<div class="btn-group role="group">'+
+                  '<button type="button" class="getoff btn  btn-default btn-lg" data-toggle="tooltip" data-placement="left" title="Getoff">'+
+                  '<span class="glyphicon glyphicon-download " aria-hidden="true"></span>'+
+                  '</button>'+
+                  '</div>'+
+                  '<div class="btn-group role="group">'+
+                  '<button type="button" class="geton btn btn-default btn-lg" data-toggle="tooltip" data-placement="left" title="Geton">'+
+                  '<span class="glyphicon glyphicon-upload " aria-hidden="true" ></span>'+
+                  '</button>'+
+                  '</div>'+
+                  '<div class="btn-group role="group">'+
+                  '<button type="button" class="poi-online btn btn-default btn-lg" data-toggle="tooltip" data-placement="left" title="poi">'+
+                  '<span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>'+
+                  '</button>'+
+                  '</div>'+
+                  '<div class="btn-group role="group">'+
+                  '<button type="button" class="odflow btn btn-default btn-lg" data-toggle="tooltip" data-placement="left" title="Save">'+
+                  '<span class="glyphicon glyphicon-send" aria-hidden="true"></span>'+
+                  '</button>'+
+                  '</div>',
+          classes : 'btn-group-vertical btn-group-sm',
+          style   :
+          {
+              'margin-top': '70px',
+              padding: '0px 0 0 0',
+              cursor: 'pointer',
+          },
+          datas   :
+          {
+              'foo': 'bar',
+          },
+          events:
+          {
+              click: function(data)
+              {
+                  console.log('wrapper div element clicked');
+                  console.log(data);
+              },
+              dblclick: function(data)
+              {
+                  console.log('wrapper div element dblclicked');
+                  console.log(data);
+              },
+              contextmenu: function(data)
+              {
+                  console.log('wrapper div element contextmenu');
+                  console.log(data);
+              },
+          }
+      }).addTo(map);
+
+  $(function () {
+    //must initialize  datatoggle before use it
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
+/*init the calender*/
+    $('.form_datetime').datetimepicker({
+      //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 1,
+        forceParse: 0,
+        showMeridian: 1,
+        minView:2,
+        format:"yyyy-mm-dd hh:ii",
+        pickerPosition: "bottom-left",
+      });
+
+   $("#calender").hide();
+
+
+     /*给geton按钮定义事件，当click出现localfilter，calender，and reset，quit*/
+
+  $(".getoff").on("click",function(){
+      backcoords={};
+
+      leafletDraw(drawControl);//框选的toolbar添加到界面,同时获得矩形的坐标
+      $("#calender").show();
+      quit_and_reset();
+      $(".geton").attr({"disabled":true});//禁用该按钮
+      $(".getoff").attr({"disabled":true});
+      $(".glyphicon-download").css({'color':'red'});
+
+      $(".getoff").attr({"click-state":true});
+  })
+
+  $(".geton").on("click",function(){
+      backcoords={};
+
+      leafletDraw(drawControl);//获得矩形的坐标
+      $("#calender").show();
+      quit_and_reset();
+      $(".geton").attr({"disabled":true});
+      $(".getoff").attr({"disabled":true});
+      $(".glyphicon-upload").css({'color':'red'});
+
+      $(".geton").attr({"click-state":true});
+
+  })
+
+function fourButtons(){
+
+   var quit_reset=L.control.custom({
+      position:"bottomright",
+      classes:"reset-container",
+      content:"<div type='button' class='cluster'>cluster</div><div type='button' class='OD'>OD</div><div type='button' class='POI'>POI</div><div type='button' class='reset'>reset</div><div type='button' class='quit'>quit<div>",
+      events:{ click:function(){
+        console.log("i m reset's parent container")
+        // style:{"position":"fixed","right":"200px","top":"0","height":"40px","width":"80px"},
+          }
+        },
+      }).addTo(map);
+      $(".reset-container").css({"width":"340px","height":"40px,","bottom":"5px"});
+      $(".reset").css({"width":"60px","height":"100%","margin-right":"10px"});
+      $(".quit").css({"width":"60px","height":"100%"});
+      $(".cluster").css({"width":"60px","height":"100%","margin-right":"10px"});
+      $(".OD").css({"width":"60px","height":"100%","margin-right":"10px"});
+      $(".POI").css({"width":"60px","height":"100%","margin-right":"10px"});
+      $(".cluster").addClass("btn btn-primary");
+      $(".OD").addClass("btn btn-primary");
+      $(".POI").addClass("btn btn-primary");
+      $(".reset").addClass("btn btn-warning ");
+      $(".quit").addClass("btn btn-warning ");
+
+      return quit_reset;
+
+}
+
+   /*quit 和reset按钮*/
+  function quit_and_reset(){
+      
+      var quit_reset = fourButtons();
+      $(".quit").on("click",function(){
+          map.removeControl(quit_reset);
+          map.removeControl(drawControl);
+          $("#calender").hide();
+          $(".getoff").attr({"disabled":false});
+          $(".geton").attr({"disabled":false});
+          $(".glyphicon-download").css({'color':'black'});
+          $(".glyphicon-upload").css({'color':'black'});
+          $(".getoff").attr({"data-state":false});
+          $(".geton").attr({"data-state":false});
+          $(map.getPanes()["markerPane"]).empty();
+          if(clusterLayer){
+           map.removeLayer(clusterLayer);
+          }
+      });
+      $(".reset").on("click",function(){
+          $(map.getPanes()["markerPane"]).empty();
+          map.removeControl(arcline);
+          // map.removeLayer(clusterLayer)
+          // $(map.getPanes().markerPane).empty();
+          // $(map.getPanes().shadowPane).empty();
+      })
+
+      $(".cluster").on("click",function(){
+          $(".modal").modal({"keyboard":false});
+          console.log('要返回的坐标'+JSON.stringify(backcoords));
+
+          // var res=Ajax("http://127.0.0.1:7999/getclusterdata?north="+backcoords['north']+'&east='+backcoords['east']+'&south='+backcoords['south']+'&west='+backcoords['west'])
+          var start_time=$(".start_time").val();
+          var day=start_time.split(" ")[0].match(/[\d]$/g);//当前查询的天
+
+          if($(".getoff").attr("click-state")){
+
+            var url="http://127.0.0.1:7999/getoffclusterdata?north="+backcoords['north']+'&east='+backcoords['east']+'&south='+backcoords['south']+'&west='+backcoords['west']+'&day='+day;
+            console.log("这是 getoff查询");
+          }else{
+            var url="http://127.0.0.1:7999/getonclusterdata?north="+backcoords['north']+'&east='+backcoords['east']+'&south='+backcoords['south']+'&west='+backcoords['west']+'&day='+day;
+
+            console.log(url,"这是geton查询");
+          }
+          
+          $.ajax({
+              url:url,
+              async:true,
+              type:"get",
+              dataType:'json',
+              content:'',
+              beforeSend:function(){
+                alert("数据响应时间略长，请耐心等待……")
+              },
+              success:function(data){
+                cluster_to_animate(data);
+                timeCost(data);
+                $(".modal").modal("hide");
+              },
+              error:function(){
+                $(".modal").modal("hide");
+                alert("数据请求错误")
+              },
+              complete:function(){
+
+              }
+          })
+         
+      })
+
+      $(".POI").on("click",function(){
+        $(".modal").modal({"keyboard":false});
+        var url="http://127.0.0.1:7999/poi_info";
+        $.ajax({
+            url:url,
+            async:true,
+            type:"get",
+            dataType:"json",
+            content:"",
+            beforeSend:function(){
+              alert("POI信息请求……")
+            },
+            success:function(data){
+              arcline();
+              arclineGenerator(data['poi']);
+              $(".modal").modal("hide");
+            },
+            error:function(){
+
+            },
+            complete:function(){
+
+            }
+        })
+        $(".modal").modal("hide")
+
+      })
+
+  }
+  
+var arcline;
+function arcline(){
+  arcline=L.control.custom({
+      position:"bottomleft",
+      classes:"arcline-container",
+      content:"",
+      style:{
+        "width":"900px",
+        "height":"300px",
+        // "background-color":"pink",
+        "left":"120px",
+        "bottom":"0px",
+        "position":"fixed"
+      },
+      events:{ 
+        click:function(){
+        console.log("i m reset's parent container")
+        // style:{"position":"fixed","right":"200px","top":"0","height":"40px","width":"80px"},
+          }
+        },
+      }).addTo(map);
+
+  // $(".arcline-container").append("<svg class='arcline'></svg>");
+  // $(".arcline").css({"width":"100%","height":"100%","background-color":"#00000038","position":"absolute"})
+
+  // var svg=d3.select(".arcline");
+  
+
+}
+
+
+// arcline()
+var poidata=[{"school":10,"market":30,"residential":40,"company":60},{"school":10,"market":120,"residential":70,"company":60},
+           {"school":30,"market":30,"residential":4,"company":160},{"school":100,"market":13,"residential":140,"company":60}]
+// arclineGenerator(poidata);
+
+var drawControl = function(){
+  var drawControl= new L.Control.Draw({
+        position: 'topleft',
+        draw: {
+          rectangle:{
+            shapeOptions:{
+              color:"orange",
+            }
+          },
+          polyline: false,
+          polygon: false,
+          circle: true,
+          marker: true
+        },
+        edit: {
+          featureGroup: drawnItems,
+          remove: true
+        }
+      });
+  return drawControl;
+}
+  function leafletDraw(drawControl){
+     var drawnItems = new L.FeatureGroup({ chunkedLoading: true });
+     map.addLayer(drawnItems);
+     
+      // Set the title to show on the polygon button
+      L.drawLocal.draw.toolbar.buttons.polygon = 'Draw a sexy polygon!';
+
+      map.addControl(drawControl);
+
+      map.on(L.Draw.Event.CREATED, function (e) {
+        var type = e.layerType,
+        layer = e.layer;
+        
+        if(type=="rectangle"){
+          var latlngs=e.layer._latlngs[0];
+          console.log(latlngs);
+
+          south=latlngs[0]['lat'];
+          west=latlngs[0]['lng'];
+          north=latlngs[2]['lat'];
+          east=latlngs[2]['lng'];
+          backcoords['east']=east;
+          backcoords['west']=west;
+          backcoords['north']=north;
+          backcoords['south']=south;
+        }
+
+        if (type === 'marker') {
+          layer.bindPopup('A popup!');
+        }
+
+        drawnItems.addLayer(layer);
+      });
+     $(".leaflet-draw").css({"top":"80px"});
+
+  }
+
+  /*poi在线查询按钮*/
+var poi_control;
+  $(".poi-online").on("click",function(){
+   poi_control=L.control.custom({
+                // position: 'topleft',
+                content : '<div class="input-group">'+
+                          '    <input type="text" class="form-control input-sm" placeholder="Search">'+
+                          '    <span class="input-group-btn">'+
+                          '        <button type="button" class="poi_search btn btn-default btn-sm" >Go</button>'+
+                          '    </span>'+
+                          '   <span class="input-group-btn ">'+
+                          '        <button type="button" class="btn btn-default btn-sm poi_close" >X</button>'+
+                          '    </span>'+
+                          '</div>',
+                classes : 'poi_input',
+                style   :
+                {
+                    position: 'fixed',
+                    right: '10px',
+                    bottom: '100px',
+                    width: '200px',
+                },
+            })
+            .addTo(map);
+    poi_close();
+    poi_search(); 
+
+  })
+
+  function poi_search(){
+    $(".poi_search").on("click",function(){
+      console.log("aa")
+    })
+  }
+
+  function poi_close(){
+    $(".poi_close").on("click",function(){
+      map.removeControl(poi_control);
+      console.log("lll")
+    })
+
+  }
+// =========================数据请求逻辑
+  
+  $(".generate_button").on("click",function(){
+      var start_time=$(".start_time").val();
+      var end_time=$(".end_time").val();
+      $(".modal").modal({"keyboard":false});
+
+      if($(".getoff").attr("click-state")){
+        var url='http://localhost:7999/getoffdata?start_time='+start_time+'&end_time='+end_time;
+      }else{
+        var url="http://localhost:7999/getondata?start_time="+start_time+"&end_time="+end_time;
+      }
+      
+       $.ajax({
+                url: url,
+                async: true,
+                type: 'get',
+                timeout:7000,
+                dataType: 'json',  //返回的数据类型
+                data:"", // data: '',   //发送给服务器的数据
+                success:function(data) {
+
+                       var res=new Array(); // res=str_to_arr(data['data']);//data是返回的字符串原数据
+                       var data_array=data['data'];
+                       for (var i=0;i<data_array.length;i++){
+                          var tmp=data_array[i];
+                          res.push([tmp['lati'],tmp['longi']])
+                       }
+                       marker_to_map(res);// res 是数组形式
+                       $(".modal").modal("hide");
+                        },
+                error:function(){
+                        console.log("error");
+                        // var str = JSON.stringify(data);
+                        // console.log(str);
+                        },
+                complete:function(data){
+                        // console.log(data.constructor.toString());
+                }
+
+            })
+  })
+
+
+/*坐标数据添加到map上*/
+var clusterLayer;
+function marker_to_map(datalist){  // coor=[lati,longi]
+   clusterLayer=L.markerClusterGroup();
+  for (var i=0;i<datalist.length;i++){
+      lati=datalist[i][0];
+      longi=datalist[i][1];
+
+      var icon=L.icon({
+        iconUrl:"lib/img/3blue.png",
+        iconAnchor:[9,28],
+      })
+      var marker=L.marker([lati,longi], { icon: icon});
+      clusterLayer.addLayer(marker);
+
+    }
+    map.addLayer(clusterLayer);
+}
+
+function timeCost(cluster_data){
+   marker_centers=[]//用来保存了每个簇中心marker对象
+   var center=cluster_data["center"];
+   console.log(center);
+   var iconPath={"0":"lib/img/red_center.png","1":"lib/img/black_center.png","2":"lib/img/yellow_center.png","3":"lib/img/green_center.png"};
+   
+   for (var j=0,len=center.length;j<len;j++){
+
+    var myIcon = L.icon({
+      iconUrl: iconPath[j.toString()],
+      iconAnchor: [10, 33],
+      popupAnchor: [-3, -76],
+  });
+
+      var longi=center[j]["longi"];
+      var lati=center[j]["lati"];
+      var marker=L.marker([lati,longi],{icon:myIcon}).addTo(map);
+      marker_centers.push(marker);
+  }
+
+  for (item in cluster_data){
+    if (item == "center"){
+      continue;
+    }else{
+
+    var dataset=cluster_data[item];
+
+
+    timecost_list=[]//用来存放每个簇的花费时间
+    for(var i=0,len=dataset.length;i<len;i++){ //i是一个点
+
+        var target_dic=dataset[i]; //target 是一个点,一个键值对对象
+        vehicle_id=Object.keys(target_dic)[0]
+        var target=target_dic[vehicle_id];
+
+        var start_time=target[0]["speed_time"]
+        var end_time=target[target.length-1]["speed_time"]
+        var time_spend=(new Date(end_time)-new Date(start_time))/1000;//总秒数
+        timecost_list.push(time_spend/60);//转换为分钟
+
+    }
+    timePopup(marker_centers[item],timecost_list);
+
+    }
+  }
+
+}
+function timePopup(marker,data){
+
+  var content="<div class='time-rect' style='width:300px;height:80px'></div>"
+  marker.bindPopup(content,{});
+  marker.on("popupopen",function(e){
+    time_rect(".time-rect",data)
+  })
+}
+var grouplayer;
+function cluster_to_animate(cluster_data){
+  console.log(cluster_data);
+
+  var animatemarkers=[];//用来存放生成的animatemarker对象
+  for (item in cluster_data){ //item  代表一个簇，dic形式item是key，array形式item是索引
+   
+    if (item=="center"){
+     continue;
+      
+    }else{
+
+    grouplayer = L.layerGroup({});
+
+    var dataset=cluster_data[item];
+
+    var iconPath={"0":"lib/img/3red.png","1":"lib/img/3black.png","2":"lib/img/3yellow.png","3":"lib/img/3green.png"};
+    var colors={"0":"red","1":"black","2":"yellow","3":"green"};
+    var path=iconPath[item.toString()];
+    var color=colors[item.toString()]
+
+    timecost_list=[]//用来存放每个簇的花费时间
+   
+    for(var i=0,len=dataset.length;i<len;i++){ //i是一个点
+
+        var target_dic=dataset[i]; //target 是一个点,一个键值对对象
+        vehicle_id=Object.keys(target_dic)[0]
+        var target=target_dic[vehicle_id];
+
+        var datalist=[];
+        for (var j=0;j<target.length;j++){ //循环这个点内的所有记录
+            var longi=target[j]['longi'];
+            var lati=target[j]['lati'];
+            var tmp=[parseFloat(lati),parseFloat(longi)];
+            datalist.push(tmp);
+            //最后一个时间减去第一个时间
+        }
+        try{
+           var line=L.polyline(datalist,{snakingSpeed: 50,color:color});
+         }catch(e){
+          console.log("坐标值发生错误")
+         }
+        
+        var options={
+          iconUrl:path,
+          iconAnchor:[9,28],
+        };
+        var cfg={//animatemarker的配置项
+                  autoStart:false,
+                  distance:2000,
+                  interval:1000,
+                  clickable: true,
+                  icon:L.icon(options),
+                };
+        var animatemarker=L.animatedMarker(line.getLatLngs(),cfg);
+
+        animatemarkers.push(animatemarker);
+        
+        try{
+          line.addTo(map).snakeIn();
+        }catch(e){
+          console.log("坐标值错误")
+        }
+        grouplayer.addLayer(animatemarker);
+    }
+    map.addLayer(grouplayer);
+  }
+  
+  } 
+   animateMarkers(animatemarkers);
+}
+
+function animateMarkers(animatemarkers){
+
+$(".OD").on("click",function(){
+  $.each(animatemarkers,function(i,marker){
+    marker.start();
+  })
+})
+
+
+}
+
+var mydata=[[30.296114,120.167400],
+            [30.296114,120.167400],
+            [30.247984,120.170150],
+            [30.275375,120.156456]]
+
+var mydata2=[[30.306114,120.167400],
+             [30.296114,120.177400],
+             [30.243984,120.170150],
+             [30.275375,120.156456]]
+/*add heatmarker*/
+// var heatLayer=L.heatLayer(mydata,{radius:30,blur:5}).addTo(map);
+// heatLayer.addLatLng([30.19831170998776,120.14602864044532]).redraw();
+// // setTimeout(function(){
+// //   map.removeLayer(heatLayer);
+// //   heatLayer.setLatLngs([[30.19831170998776,120.14602864044532]]).redraw();
+
+// //   },3000)
+
+
+/*添加cluster layer*/
+// var clusterLayer=L.markerClusterGroup();
+
+// for (var i=0;i<mydata.length;i++){
+//   var a=mydata[i];
+
+//   var marker=L.marker(new L.LatLng(a[0],a[1]),{});
+//   marker.bindPopup("helo")
+//   clusterLayer.addLayer(marker);
+// }
+
+// map.addLayer(clusterLayer);
+
+// ======================================
+
+
+
+/*marker has bounce */
+//  marker = new L.Marker([30.251062259036086,120.09562522483543], {bounceOnAdd: true}).addTo(map);
+// marker.on('click', function () {
+//     marker.bounce({duration: 500, height: 100});
+// });
+
+// ------------------------------
+/*the marker along the line  walk*/
+// var mygroup=L.layerGroup()
+
+
+// var line=L.polyline(mydata);
+
+// var animatelayer=L.animatedMarker(line.getLatLngs(),{distance:2000,interval:1000,autoStart:false,clickable: true});
+// var icon=L.icon({
+//   iconUrl:"lib/img/red_center.png",
+//   iconAnchor:[10,33],
+// })
+// var mymarker=L.marker([30.296114,120.167400],{icon:icon})
+// mymarker.addTo(map);
+// // ciLayer.addMarker(animatelayer,{icon:options});
+// var line = L.polyline(mydata, {snakingSpeed: 50});
+// line.addTo(map).snakeIn();
+
+
+
+// animatelayer.start();
+// animatelayer.stop();
+// map.addLayer(line);
+// map.addLayer(ciLayer);
+
+// map.on("click",function(e){
+//   // animatelayer.start();
+//   // animatelayer2.start();
+// })
+
+// polyline=[[30.264154688972027,120.1530812904148],[30.251062259036086,120.09562522483543]];
+// var mypolyline=L.polyline(polyline,{color:"red"}).addTo(map);
+// map.fitBounds(line)
+
+// ---------------------------
+</script>
+</html>
